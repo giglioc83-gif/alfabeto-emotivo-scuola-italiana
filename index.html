@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfabeto emotivo della scuola italiana — OraBuca</title>
+<meta name="description" content="Ventuno voci della scuola italiana raccontano una parola ciascuna. Un alfabeto emotivo a cura di OraBuca.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #e6f0ed;
+    --bg-soft: #d9e8e4;
+    --bg-deep: #cde0db;
+    --paper: #f2f6f4;
+    --ink: #1f3833;
+    --ink-soft: #4a6660;
+    --accent: #5a9b91;
+    --accent-deep: #3e7770;
+    --accent-pale: #bcd9d3;
+    --line: rgba(31, 56, 51, 0.12);
+    --shadow: 0 1px 0 rgba(31, 56, 51, 0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* ==== NAVIGAZIONE LETTERE ==== */
+  .nav {
+    position: fixed;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: rgba(242, 246, 244, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 16px 8px;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+  }
+
+  .nav a {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 4px 6px;
+    text-align: center;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    min-width: 22px;
+    letter-spacing: 0.5px;
+  }
+
+  .nav a:hover, .nav a.active {
+    color: var(--paper);
+    background: var(--accent);
+  }
+
+  .nav a.intro-link {
+    font-size: 10px;
+    padding: 4px 4px;
+    color: var(--accent-deep);
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+  }
+
+  .nav a.intro-link:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  /* ==== INTRO ==== */
+  .intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 8vw 80px;
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 100%);
+  }
+
+  .intro::before {
+    content: 'ABCDEFGHILMNOPRSTUVZ';
+    position: absolute;
+    top: 60px;
+    left: 8vw;
+    right: 8vw;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 300;
+    font-size: clamp(40px, 8vw, 110px);
+    color: var(--accent-pale);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    opacity: 0.55;
+    word-spacing: -0.2em;
+    pointer-events: none;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .intro-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 2;
+    margin-top: 60px;
+  }
+
+  .intro-kicker {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .intro-kicker::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent-deep);
+  }
+
+  .intro h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  .intro h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-deep);
+  }
+
+  .intro p {
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+    max-width: 640px;
+  }
+
+  .intro p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .intro-meta {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .intro-meta .label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .intro-meta .value {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  .intro-meta a {
+    color: var(--accent-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-pale);
+    transition: border-color 0.2s ease;
+  }
+
+  .intro-meta a:hover {
+    border-color: var(--accent-deep);
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 40px;
+    left: 8vw;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: floatdown 2.4s ease-in-out infinite;
+  }
+
+  .scroll-cue::after {
+    content: '↓';
+    font-size: 16px;
+  }
+
+  @keyframes floatdown {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(6px); opacity: 1; }
+  }
+
+  /* ==== INDICE ==== */
+  .indice {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .indice-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 28px;
+  }
+
+  .indice-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 32px;
+    counter-reset: ix;
+  }
+
+  .indice-list li {
+    counter-increment: ix;
+  }
+
+  .indice-list a {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    column-gap: 14px;
+    row-gap: 2px;
+    align-items: baseline;
+    padding: 10px 8px 10px 0;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .indice-list a:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .indice-list a:hover .ix-let {
+    color: var(--accent-deep);
+  }
+
+  .ix-let {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ink-soft);
+    grid-row: 1 / span 2;
+    align-self: center;
+    transition: color 0.2s ease;
+  }
+
+  .ix-word {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .ix-author {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.2;
+  }
+
+  /* ==== VOCI ==== */
+  .voce {
+    min-height: 100vh;
+    padding: 100px 8vw 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid var(--line);
+  }
+
+  .voce:nth-child(even) {
+    background: var(--bg-soft);
+  }
+
+  .voce:nth-child(3n) {
+    background: var(--paper);
+  }
+
+  .voce-lettera {
+    position: absolute;
+    top: 50%;
+    left: -2vw;
+    transform: translateY(-50%);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 300;
+    font-size: clamp(280px, 42vw, 620px);
+    line-height: 0.85;
+    color: var(--accent-pale);
+    opacity: 0.45;
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .voce-content {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .voce-header {
+    margin-bottom: 40px;
+  }
+
+  .voce-numero {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--accent-deep);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .voce-titolo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: clamp(40px, 5.5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .voce-autrice {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+
+  .voce-autrice::before {
+    content: '— ';
+    color: var(--accent);
+  }
+
+  .voce-testo {
+    font-size: 17.5px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .voce-testo p {
+    margin-bottom: 1.2em;
+  }
+
+  .voce-testo p:last-child {
+    margin-bottom: 0;
+  }
+
+  .voce-testo em {
+    font-style: italic;
+  }
+
+  /* ==== FOOTER ==== */
+  .footer {
+    padding: 80px 8vw 60px;
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+  }
+
+  .footer-mark {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .footer p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(242, 246, 244, 0.7);
+    max-width: 520px;
+    margin: 0 auto 20px;
+  }
+
+  .footer a {
+    color: var(--accent-pale);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(188, 217, 211, 0.3);
+    transition: border-color 0.2s ease;
+  }
+
+  .footer a:hover {
+    border-color: var(--accent-pale);
+  }
+
+  .footer-credit {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(242, 246, 244, 0.1);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(242, 246, 244, 0.4);
+  }
+
+  /* ==== RESPONSIVE ==== */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+
+    .nav {
+      top: auto;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transform: none;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      border-radius: 0;
+      padding: 10px 12px;
+      gap: 2px;
+      border-top: 1px solid var(--line);
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .nav a {
+      flex-shrink: 0;
+      min-width: 26px;
+      font-size: 11px;
+    }
+
+    .intro, .voce {
+      padding-left: 6vw;
+      padding-right: 6vw;
+    }
+
+    .voce {
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+
+    .voce-lettera {
+      font-size: clamp(220px, 60vw, 340px);
+      left: -4vw;
+      opacity: 0.35;
+    }
+
+    .voce-content {
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    .voce-titolo {
+      font-size: clamp(32px, 9vw, 48px);
+    }
+
+    .intro h1 {
+      font-size: clamp(32px, 9vw, 48px);
+    }
+
+    .intro p {
+      font-size: 17px;
+    }
+
+    .intro-meta {
+      gap: 20px;
+    }
+
+    .indice-list {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .indice-list a {
+      padding: 12px 4px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigazione -->
+<nav class="nav" id="nav">
+  <a href="#aiuto">A</a>
+  <a href="#bravo">B</a>
+  <a href="#chat-di-classe">C</a>
+  <a href="#diversita">D</a>
+  <a href="#errore">E</a>
+  <a href="#finestra">F</a>
+  <a href="#genitori">G</a>
+  <a href="#humor">H</a>
+  <a href="#imbarazzo">I</a>
+  <a href="#libro">L</a>
+  <a href="#merenda">M</a>
+  <a href="#nome">N</a>
+  <a href="#obbligo">O</a>
+  <a href="#precariato">P</a>
+  <a href="#quadro-svedese">Q</a>
+  <a href="#rabbia">R</a>
+  <a href="#solitudine">S</a>
+  <a href="#tema">T</a>
+  <a href="#ultimo-banco">U</a>
+  <a href="#vocazione">V</a>
+  <a href="#zero">Z</a>
+</nav>
+
+<!-- Intro -->
+<section class="intro" id="intro">
+  <div class="intro-content">
+    <span class="intro-kicker">Un progetto di OraBuca</span>
+    <h1>Alfabeto emotivo<br>della scuola <em>italiana</em></h1>
+    <div class="intro-meta">
+      <div>
+        <span class="label">A cura di</span>
+        <span class="value"><a href="https://orabuca.substack.com" target="_blank" rel="noopener">Carmela Giglio</a></span>
+      </div>
+      <div>
+        <span class="label">Pubblicato su</span>
+        <span class="value"><a href="https://orabuca.substack.com" target="_blank" rel="noopener">OraBuca</a></span>
+      </div>
+      <div>
+        <span class="label">Voci</span>
+        <span class="value">21</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="indice">
+    <h2 class="indice-title">Indice</h2>
+    <ol class="indice-list">
+      <li><a href="#aiuto"><span class="ix-let">A</span><span class="ix-word">Aiuto</span><span class="ix-author">Sarah Testa</span></a></li>
+      <li><a href="#bravo"><span class="ix-let">B</span><span class="ix-word">Bravo</span><span class="ix-author">Simona Butò</span></a></li>
+      <li><a href="#chat-di-classe"><span class="ix-let">C</span><span class="ix-word">Chat di classe</span><span class="ix-author">Marcella Acierno</span></a></li>
+      <li><a href="#diversita"><span class="ix-let">D</span><span class="ix-word">Diversità</span><span class="ix-author">Sara Cappelletti</span></a></li>
+      <li><a href="#errore"><span class="ix-let">E</span><span class="ix-word">Errore</span><span class="ix-author">Alice Vedovati</span></a></li>
+      <li><a href="#finestra"><span class="ix-let">F</span><span class="ix-word">Finestra</span><span class="ix-author">Chiara Sivieri</span></a></li>
+      <li><a href="#genitori"><span class="ix-let">G</span><span class="ix-word">Genitori</span><span class="ix-author">Sarah Testa</span></a></li>
+      <li><a href="#humor"><span class="ix-let">H</span><span class="ix-word">Humor</span><span class="ix-author">Carmela Giglio</span></a></li>
+      <li><a href="#imbarazzo"><span class="ix-let">I</span><span class="ix-word">Imbarazzo</span><span class="ix-author">Elena Sandre</span></a></li>
+      <li><a href="#libro"><span class="ix-let">L</span><span class="ix-word">Libro</span><span class="ix-author">Alice Vedovati</span></a></li>
+      <li><a href="#merenda"><span class="ix-let">M</span><span class="ix-word">Merenda</span><span class="ix-author">Marcella Acierno</span></a></li>
+      <li><a href="#nome"><span class="ix-let">N</span><span class="ix-word">Nome</span><span class="ix-author">Sara Cappelletti</span></a></li>
+      <li><a href="#obbligo"><span class="ix-let">O</span><span class="ix-word">Obbligo</span><span class="ix-author">Lorenza Alessandri</span></a></li>
+      <li><a href="#precariato"><span class="ix-let">P</span><span class="ix-word">Precariato</span><span class="ix-author">Jessica Omizzolo</span></a></li>
+      <li><a href="#quadro-svedese"><span class="ix-let">Q</span><span class="ix-word">Quadro svedese</span><span class="ix-author">Elena Sandre</span></a></li>
+      <li><a href="#rabbia"><span class="ix-let">R</span><span class="ix-word">Rabbia</span><span class="ix-author">Sarah Testa</span></a></li>
+      <li><a href="#solitudine"><span class="ix-let">S</span><span class="ix-word">Solitudine</span><span class="ix-author">Lorenza Alessandri</span></a></li>
+      <li><a href="#tema"><span class="ix-let">T</span><span class="ix-word">Tema</span><span class="ix-author">Chiara Sivieri</span></a></li>
+      <li><a href="#ultimo-banco"><span class="ix-let">U</span><span class="ix-word">Ultimo banco</span><span class="ix-author">Chiara Sivieri</span></a></li>
+      <li><a href="#vocazione"><span class="ix-let">V</span><span class="ix-word">Vocazione</span><span class="ix-author">Jessica Omizzolo</span></a></li>
+      <li><a href="#zero"><span class="ix-let">Z</span><span class="ix-word">Zero</span><span class="ix-author">Simona Butò</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- A — AIUTO -->
+<section class="voce" id="aiuto">
+  <div class="voce-lettera">A</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">01 / 21</span>
+      <h2 class="voce-titolo">Aiuto</h2>
+      <p class="voce-autrice">Sarah Testa</p>
+    </header>
+    <div class="voce-testo">
+      <p>Il termine "aiuto" si collega immediatamente nella mia mente al termine "ascolto". È solo grazie ad un ascolto attivo, alla possibilità di mettermi nei panni dell'altro con empatia, che la mia mente può pianificare un intervento di aiuto. Se io posso osservare l'Altro nella condizione in cui si trova, percepirne il vissuto emotivo (senza per questo farmi travolgere da esso), allora potrò anche tentare di fare un passo concreto verso l'Altro, con un gesto, una parola, o banalmente con un partecipato silenzio che possa essere di supporto e fare sentire il mio interlocutore meno solo nella sua condizione.</p>
+      <p>Come scrivo nel testo <em>Cosa porto nel cerchio. Teoria e pratica dell'intelligenza emotiva in classe</em> (pag. 57) "l'ascolto presuppone interazione tra due persone, che consente di mettere l'Altro nelle condizioni di dire la propria Verità. Essa può essere spiacevole, dolorosa e non può non sollecitare nell'ascoltatore emozioni, talvolta anche molto perturbanti e spinose". Si può dire che l'ascolto sia la <em>conditio sine qua non</em> per sviluppare una dimensione di aiuto. Penso sia doveroso sottolineare come la dimensione dell'ascolto e quindi, a seguire, quella dell'aiuto, sia trasversale a tutte le categorie in cui possiamo suddividere la popolazione. Serve ascolto attivo e quindi aiuto al bambino, all'adolescente e all'adulto; così come serve al giardiniere, al cuoco, al giudice o all'agente di polizia.</p>
+      <p>Solitamente tendiamo a commettere un grave errore e a pensare che i professionisti a servizio della Comunità non necessitino di aiuto, poiché dell'aiuto ne hanno fatto per l'appunto, il loro mandato lavorativo. Niente, a mio avviso, di più sciocco da credere! L'ascolto di se stessi, delle emozioni sovente travolgenti a cui l'attività professionale espone e dunque la capacità di chiedere aiuto ai colleghi, ai superiori, agli amici, ai propri familiari o, se serve, ad altri professionisti della cura, è una condizione imprescindibile per offrire un lavoro di qualità, oltre che per essere cittadini sereni e soddisfatti.</p>
+      <p>Il 18 maggio 2026, in un noto complesso scolastico torinese, durante le ore di servizio, si è tolto la vita, gettandosi volontariamente dal secondo piano dell'edificio, un insegnante trentacinquenne (fonte <em>Corriere della Sera</em>). Poco sappiamo circa le motivazioni del suo gesto, né tanto meno mi arrogo il miope diritto di farne una questione etica e morale. Prendo però a prestito questo increscioso e disperato fatto di cronaca per riflettere circa il tema in questione. Pensando alle istituzioni scolastiche siamo immediatamente portati a pensare che l'aiuto, l'ascolto, la cura e l'attenzione debbano essere erogati nei confronti degli alunni, fruitori diretti del servizio e, al più, nei confronti dei nuclei familiari da cui i suddetti provengono.</p>
+      <p>Ciò che invece sovente viene dimenticato è che i primi a necessitare di un ascolto attivo sono proprio i docenti, gli educatori e tutte quelle figure adulte (non meno importanti) che contribuiscono con il loro lavoro a tenere in moto la macchina scolastica (personale ata, personale di segreteria, addetti di laboratorio, addetti mensa, ecc). Non possono esistere minori consapevoli senza degli adulti consapevoli. Non possono esistere minori empatici senza degli adulti empatici. Non possono esistere minori capaci di chiedere aiuto, senza adulti capaci di fare altrettanto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- B — BRAVO -->
+<section class="voce" id="bravo">
+  <div class="voce-lettera">B</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">02 / 21</span>
+      <h2 class="voce-titolo">Bravo</h2>
+      <p class="voce-autrice">Simona Butò</p>
+    </header>
+    <div class="voce-testo">
+      <p>In questi ultimi trenta-quarant'anni, la scuola (non la scuola italiana ma quella con la s maiuscola, globale e internazionale) ha vissuto una ridicola trasformazione.</p>
+      <p>In una fase iniziale (gli anni Ottanta-Novanta del secolo scorso), essa orgogliosamente definiva gli studenti in termini di capitale umano, come ogni efficace azienda che si rispetti, impegnandosi a scovare mille e più strumenti che potessero oggettivamente ed in modo incontrovertibile misurare i risultati della sua utenza.</p>
+      <p>Da una decina d'anni assistiamo invece al fiorire di progetti e di 'educazioni a', ad un proliferare di ore che tentano di limitare gli effetti desolanti del tempo trascorso a rendere gli studenti abili e competenti, a renderli "bravi a…". Bravi ad essere efficaci ingranaggi di un sistema.</p>
+      <p>Dove e quando abbiamo (come specie umana, intendo) dimenticato che a scuola si impara a vivere? È possibile che essa sia luogo e tempo nei quali si impara, semplicemente, ad essere?</p>
+    </div>
+  </div>
+</section>
+
+<!-- C — CHAT DI CLASSE -->
+<section class="voce" id="chat-di-classe">
+  <div class="voce-lettera">C</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">03 / 21</span>
+      <h2 class="voce-titolo">Chat di classe</h2>
+      <p class="voce-autrice">Marcella Acierno</p>
+    </header>
+    <div class="voce-testo">
+      <p>L'espressione <em>chat di classe</em> evoca l'apocalisse della genitorialità moderna.</p>
+      <p>Parlarne male, però, è come sparare sulla Croce Rossa. Perché la chat di classe è la comfort zone che serve ai genitori "apprensivi" per pianificare la vita della prole ed evitargli traumi e fatica (povera stella). Serve ai genitori "distratti" per avere un promemoria di quelle attività che altrimenti ignorerebbero. Serve ai genitori "impegnati" per avere degli assistenti per le attività extra scolastiche dei figli a costo zero.</p>
+      <p>Sotto questa finta utilità si nasconde il vero capolavoro del nostro tempo sghembo: la totale deresponsabilizzazione dei ragazzi. Abbiamo sottratto loro ogni minima forma di autonomia. Un tempo, se non capivi una consegna, dovevi farti coraggio e chiamare un compagno. O prenderti la responsabilità di presentarti in classe senza compiti svolti. Oggi ci pensiamo noi: milizie di genitori pronti a rintracciare la pagina di geografia mancante. E la mia domanda è una: perché?</p>
+      <p>Il cortocircuito è epico: facciamo prediche sulla loro schermo-dipendenza, mentre passiamo i pomeriggi chini sullo smartphone a gestire la loro vita, oltre alla nostra. Ci lamentiamo che non socializzano e intanto depotenziamo l'unico vero spazio di alleanza: la classe. Perché è tra un compito non capito e una richiesta d'aiuto al compagno di classe che nasce la complicità e si impara a fare squadra. Rubandogli queste piccole fatiche in nome di non so esattamente quale ideale, non li stiamo aiutando né proteggendo. Li stiamo solo privando del diritto di crescere.</p>
+    </div>
+  </div>
+</section>
+
+<!-- D — DIVERSITÀ -->
+<section class="voce" id="diversita">
+  <div class="voce-lettera">D</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">04 / 21</span>
+      <h2 class="voce-titolo">Diversità</h2>
+      <p class="voce-autrice">Sara Cappelletti</p>
+    </header>
+    <div class="voce-testo">
+      <p>La parola "diversità" deriva dal latino <em>divèrtere</em>: "rivolgersi altrove", e porta con sé sia il concetto di differenza, sia quello di varietà e molteplicità. Educare alle differenze non significa considerare la diversità come un valore da dichiarare o da celebrare in occasioni speciali, ma innanzitutto e semplicemente trattarla per quello che è: un dato di realtà. Le persone che abitano una classe, così come quelle che abitano il mondo, sono diverse. Per provenienza, storia, tratti, esperienze.</p>
+      <p>La letteratura è uno degli strumenti più potenti che abbiamo a disposizione per insegnare e imparare a stare dentro questo fatto. Leggere romanzi e racconti ci aiuta a comprendere meglio chi siamo noi e chi sono gli altri. Come pensano, come vivono, come si comportano. La letteratura, infatti, cattura le vicende particolari, le storie microscopiche, i dettagli di certi esseri umani. Ed è proprio grazie a questa sua peculiarità che ci permette di incontrare, di volta in volta, punti di vista e prospettive che non sono le nostre.</p>
+      <p>Ci fa evadere, vivere altre vite e poi tornare in noi stessi; è conoscenza e insieme esperienza, e ci mette sempre in relazione con gli altri. La letteratura, insomma, ci guarisce dall'illusione di bastare a noi stessi; ci allena a comprendere gli altri e a "sentirli" quando poi li incontriamo nella realtà di tutti i giorni: a scuola, al lavoro, per strada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- E — ERRORE -->
+<section class="voce" id="errore">
+  <div class="voce-lettera">E</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">05 / 21</span>
+      <h2 class="voce-titolo">Errore</h2>
+      <p class="voce-autrice">Alice Vedovati</p>
+    </header>
+    <div class="voce-testo">
+      <p>Se dovessi scegliere un sinonimo per la parola "errore", non userei "sbaglio".</p>
+      <p>L'etimologia della parola richiama errare, vagare. In questo movimento non lineare, il viaggio dell'apprendimento trova la sua vera essenza. Eppure, nel lavoro editoriale a tutti i livelli, sia per un libro sia per un magazine online, l'errore è un ospite temuto: un refuso o un'imprecisione rappresentano un problema serio, poiché la fonte si propone come "autorevole", quasi infallibile, esattamente come ci si aspetta che non sbagli mai un professore.</p>
+      <p>Tuttavia, la pedagogia contemporanea e le Indicazioni Nazionali ci stanno insegnando a scardinare questo stigma. L'errore non deve essere più descritto solo come qualcosa da correggere rapidamente per consolidare conoscenze "corrette", ma come una leva di crescita autentica, parte di un processo formativo che ha nel feedback (sia esso una correzione o un rinforzo positivo) le sue fondamenta. In un'epoca in cui si fantastica di un'Intelligenza artificiale capace di sostituire l'umano con una perfezione algoritmica, rivendicare la nostra fallibilità è un atto di resistenza. Allo stesso tempo rivendicare la nostra capacità di apprendimento, diversa da quella artificiale, ci permette di rivendicare gli altri tipi di intelligenza che fanno parte della nostra capacità di imparare, per esempio l'intelligenza emotiva.</p>
+      <p>Come ci ricordava Maria Montessori, l'errore deve essere una guida: il materiale educativo stesso deve permettere al bambino di accorgersi dello sbaglio e trovare autonomamente la strada per risolverlo. È quella che oggi definiamo una "didattica dell'errore", che stimola la curiosità e dà senso allo studio, rendendo lo studente protagonista del proprio processo di autoregolazione.</p>
+      <p>Anche Gianni Rodari, con la sua <em>Grammatica della fantasia</em>, ci ha mostrato come dagli errori possano nascere storie speciali, trasformando una svista in un'opportunità creativa.</p>
+      <p>Per me, come madre forse ancor più come professionista, la paura di sbagliare resta, ma ho imparato che l'errore fa parte del viaggio. Difendere l'errore significa difendere l'umanità del fare: quell'universo fatto di imprevisti e tentativi che è l'unica legge fondamentale capace di tenere insieme la nostra comunità educante.</p>
+    </div>
+  </div>
+</section>
+
+<!-- F — FINESTRA -->
+<section class="voce" id="finestra">
+  <div class="voce-lettera">F</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">06 / 21</span>
+      <h2 class="voce-titolo">Finestra</h2>
+      <p class="voce-autrice">Chiara Sivieri</p>
+    </header>
+    <div class="voce-testo">
+      <p>Tempo fa, non ricordo né quando né dove, ho letto che la metafora attraverso la quale più spesso gli studenti italiani descrivono la scuola è <em>il carcere</em>. Non mi ha stupito davvero, anche se, amando io profondamente la scuola, mi ha addolorato moltissimo. Questo ricordo è affiorato alla mia mente quando mi è stata affidata la parola <em>finestra</em> associata alla scuola. Sì, perché il carcere è proprio l'opposto di una finestra che ti permette di guardare il mondo mentre sei al riparo ma sei libero/a, mentre sei al sicuro e il mondo entra dentro il tuo spazio, lasciandosi osservare, lasciandosi interpretare.</p>
+      <p>Una scuola-carcere dunque, un carcere che umilia il corpo degli studenti, immobilizzati per sei ore dietro un banco, che trattiene il sapere in programmi-gabbie e discipline-scatole, che soffoca chi la vive con la presunta necessità di una valutazione che pervade ogni aspetto, conoscenze, competenze, comportamento.</p>
+      <p>Sarebbe bellissimo se la scuola, un giorno, potesse essere percepita da chi la vive tutti i giorni come una finestra dai vetri puliti, che fa entrare tanta luce, da aprire spesso per fare entrare aria e alla quale affacciarsi volentieri per guardare cosa c'è fuori di nuovo, o di non ancora visto, o di semplicemente bello.</p>
+    </div>
+  </div>
+</section>
+
+<!-- G — GENITORI -->
+<section class="voce" id="genitori">
+  <div class="voce-lettera">G</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">07 / 21</span>
+      <h2 class="voce-titolo">Genitori</h2>
+      <p class="voce-autrice">Sarah Testa</p>
+    </header>
+    <div class="voce-testo">
+      <p>"Genitori si diventa" cita il nome di una nota associazione torinese che si occupa di supportare psicologicamente quelle coppie che si stanno avvicinando al mondo dell'adozione. Per quanto essa riguardi solo uno degli ormai svariati modi attraverso cui una persona possa diventare un genitore oggigiorno, penso che questo titolo sia quanto mai calzante ed evocativo e possa abbracciare figurativamente tutte le possibili esperienze di genitorialità.</p>
+      <p>Avere la tutela legale di un minore, infatti, non fa necessariamente dell'adulto un genitore, ma fa del minore un figlio. Non è detto pertanto che quando nasce un bambino nascano all'istante anche delle figure genitoriali. Penso, al contrario, che per questa parte dell'equazione serva del tempo. È la costruzione del legame affettivo che si crea di giorno in giorno con quel piccolino, la sintonizzazione sui suoi bisogni, l'arte del riconoscersi vicendevolmente nei propri stati emotivi che trasformano una donna nella "mia mamma" e un uomo nel "mio papà". In questo enorme lavoro di scambio relazionale, il genitore è tenuto ad interfacciarsi non solo con il proprio cucciolo, ma anche con tutto l'ambiente che egli porta con sé. (Si veda se interessati la teoria dei Sistemi Ecologici di U. Brofenbrenner, 1979 — <em>The ecology of human development: experiments by nature and design</em>. Testo tradotto in italiano <em>Ecologia dello sviluppo umano</em>, il Mulino, 1986).</p>
+      <p>Ed è proprio in questo scambio relazionale che l'adulto incontra il complesso, quanto farraginoso mondo della scuola. Egli non incontra (ahilui) solo la scuola che frequenta il figlio, ma anche l'esperienza che lui stesso, in qualità di figlio, ha attraversato nel corso della propria infanzia e adolescenza, il che, come si può facilmente immaginare, complica assai la faccenda. Sarebbe utile che il genitore possa aver elaborato le proprie esperienze scolastiche, buone o cattive che siano state, per arrivare il più possibile sgombro nell'accompagnare il figlio in questo viaggio. Non è raro sentire: "È secchione proprio come me", oppure "Non studia nulla, proprio come me". È con questo bagaglio interno che madri e padri di tutto il mondo devono accompagnare i propri pargoletti a scuola, o recarsi ai colloqui con gli insegnanti.</p>
+      <p>Se è vero che ognuno deve fare i conti con l'alunno che è stato, un consiglio può in qualche modo alleggerire il fardello: cari genitori, alle riunioni di classe, ai colloqui individuali, alle assemblee di istituto andateci pensando che quegli insegnanti non sono nemici da combattere, non sono i vostri tremendi professori di latino che vi facevano saltare la ricreazione per tradurre Catullo ma persone con delle emozioni, esattamente come le vostre, con cui potete fare squadra, perché, seppur al di là della barricata il primo interesse di tutti è e deve rimanere solo uno: contribuire positivamente alla crescita dei vostri fanciulli.</p>
+    </div>
+  </div>
+</section>
+
+<!-- H — HUMOR -->
+<section class="voce" id="humor">
+  <div class="voce-lettera">H</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">08 / 21</span>
+      <h2 class="voce-titolo">Humor</h2>
+      <p class="voce-autrice">Carmela Giglio</p>
+    </header>
+    <div class="voce-testo">
+      <p>Quando i Bluvertigo cantavano "I professori sono quasi tutti fuori dal tempo" io andavo al liceo. Ed ero convinta anch'io che i professori fossero fuori dal tempo. In particolare, ciò che trovavo asincrono rispetto alla realtà (a parte un paio di felici eccezioni) era il senso dell'umorismo degli insegnanti. Mi sembrava che la loro concezione della risata fosse del tutto dissonante dalla nostra.</p>
+      <p>Con il tempo, ho capito che adulti e ragazzi hanno due modi diversi di ridere. I primi, per colmare il vuoto che li separa dai loro figli e dai loro studenti, usano spesso l'umorismo con l'illusione di avvicinarsi ai secondi, raramente riuscendoci.</p>
+      <p>I secondi, d'altro canto, hanno un umorismo fatto di codici molto effimeri, legati a micronicchie chiuse dentro altre nicchie più grandi che a loro volta sono comprese in un sistema comunicativo che si rifà a tormentoni che oggi arrivano perlopiù dai social, e da cui gli adulti sono esclusi.</p>
+      <p>A me pare poi che gli adolescenti — per come ricordo io l'adolescenza e per come la vedo in mio figlio, che vi si affaccia ora — usino l'umorismo per <em>escludere</em>, nel bene e nel male. L'umorismo, quello fatto di <em>inside jokes</em> noti solo ai membri del gruppo, serve per perimetrare il gruppo stesso, escludendo gli altri, anche con modalità violente e drammatiche, a volte.</p>
+      <p>Al netto dei risvolti dolenti che può avere questo uso escludente della risata, è innegabile però che noi adulti abbiamo dimenticato quanto siano deliziosi gli <em>inside jokes</em>, quei rimandi ironici che creano una complicità e un legame tipico delle grandi amicizie adolescenziali (o delle relazioni ad alto tasso di complicità intellettuale, erotica, emotiva e in cui entrambi sono abbastanza allineati da ridere delle stesse cose, evento praticamente impossibile, ma a quanto pare attestato insieme agli avvistamenti degli UFO nell'Area 51).</p>
+      <p>Noi adulti tendiamo invece a usare la risata per <em>includere</em> a tutti i costi: per fare colpo sui colleghi, per scaldare un flirt in palestra, per darci un'aura di compiaciuta arguzia in mezzo a un gruppo di persone che non rivedremo mai più, ma che ci piace pensare di aver conquistato.</p>
+      <p>I professori hanno la possibilità (pur in mezzo alle mille scassate contraddizioni della scuola italiana e facendosi carico di un peso emotivo che poche altre professioni portano) di stare costantemente a contatto con una parte di vita che ad altri adulti sfugge per sempre via.</p>
+      <p>E questa parte di vita ha dentro di sé quei legami fatti di risate infinite per delle cose assolutamente stupide e prive di senso. Un modo di ridere che è solo <em>nostro</em>, è totalizzante e ci sembra possa durare per sempre.</p>
+      <p>I professori, quindi, non sono affatto fuori dal tempo. Anzi, lo vedono arrivare, e possono riderne, prima di noi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- I — IMBARAZZO -->
+<section class="voce" id="imbarazzo">
+  <div class="voce-lettera">I</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">09 / 21</span>
+      <h2 class="voce-titolo">Imbarazzo</h2>
+      <p class="voce-autrice">Elena Sandre</p>
+    </header>
+    <div class="voce-testo">
+      <p>Imbarazzo è una parola che vorrebbe chiudersi in se stessa ma che deve fare i conti con le "z", lettere forti, che fanno rumore, attirano l'attenzione, sibilano e caratterizzano.</p>
+      <p>Viene da dentro, l'imbarazzo.</p>
+      <p>Dal carattere, dalle fragilità, dalle sfumature e dai sogni mal celati. Ma si alimenta da fuori, l'imbarazzo. Dalla società, dai gruppi ai quali, volenti o meno, apparteniamo senza poter scappare.</p>
+      <p>L'imbarazzo vive nelle cornici che si è obbligati ad abitare e l'ora di educazione fisica, a scuola, è una di quelle cornici. L'ora di nuoto, a scuola, è una di quelle cornici.</p>
+      <p>Tutti diversi e diverse, nessuna omogeneità, nessuna capacità in comune se non quella di muoversi nello spazio (e dici poco).</p>
+      <p>L'imbarazzo nasce dove si incontrano mondi che si intersecano senza desiderarlo. Nasce nelle ore di educazione fisica dove tutte le gerarchie possono ribaltarsi o acuirsi. Sì, è imbarazzante vedersi attivi, nudi, diversi e mai uguali nei gesti e nelle forme.</p>
+    </div>
+  </div>
+</section>
+
+<!-- L — LIBRO -->
+<section class="voce" id="libro">
+  <div class="voce-lettera">L</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">10 / 21</span>
+      <h2 class="voce-titolo">Libro</h2>
+      <p class="voce-autrice">Alice Vedovati</p>
+    </header>
+    <div class="voce-testo">
+      <p>Nella mia dimensione privata, il libro è un rifugio silenzioso. Il verbo associato dominante è <em>leggere</em>, vissuto come una vera e propria terapia dell'anima, uno spazio di cura e introspezione.</p>
+      <p>Ma quando ogni giorno entro in Appears, la prospettiva si ribalta e il libro diventa un oggetto dinamico, un progetto vivo: il verbo dominante diventa fare.</p>
+      <p>Fare un libro, specialmente se destinato alla scuola, significa entrare in un universo complesso che va ben oltre la pagina stampata. È un processo fatto di flussi, tecnicismi rigorosi e scelte metodologiche precise, ma anche di tanta creatività. Dietro ogni pagina si muove una costellazione di persone: redattori, grafici, esperti di didattica, autori e consulenti, motion designer e redattori digitali, persino attori, che intrecciano le proprie peculiarità, caratteri e anche emozioni per un obiettivo comune, quello di creare un formidabile strumento metodologico che affianchi chi insegna e chi studia.</p>
+      <p>In questo senso, il libro di testo diventa il punto di arrivo di un'opera corale, dove le esigenze del contenuto devono tenere conto, sempre di più in un mondo che cambia, di Indicazioni ministeriali in rincorsa, di framework europei, di logiche commerciali (perché sempre di lavoro e di mercato stiamo parlando, anche se sarebbe romantico far finta non sia così), di esigenze di studenti e studentesse con livelli di attenzione sempre, ahimè, più bassi.</p>
+      <p>Fare un libro è, in ultima analisi, collaborare per costruire un mattoncino della Scuola che cambia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- M — MERENDA -->
+<section class="voce" id="merenda">
+  <div class="voce-lettera">M</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">11 / 21</span>
+      <h2 class="voce-titolo">Merenda</h2>
+      <p class="voce-autrice">Marcella Acierno</p>
+    </header>
+    <div class="voce-testo">
+      <p>Sono stata rappresentante di classe per otto anni e per me la parola merenda significa organizzare un momento di socialità fra genitori in cui promuovere la nostra conoscenza e raccogliere fondi per la scuola. Tutte queste belle intenzioni, però, si sono tradotte in uno slalom tra allergie, intolleranze e budget degni di un'organizzazione industriale (e una domanda di fondo: perché mai dovremmo socializzare per forza?).</p>
+      <p>Sono passata dall'essere una studentessa senza nessun coinvolgimento attivo dei genitori nella vita scolastica, a mamma e rappresentante di un'epoca che ci vuole attivi, presenti e performanti per non dover mettere un rotolo di carta igienica nello zaino dei nostri figli insieme ai libri.</p>
+      <p>Il cortocircuito è proprio qui. Quello che sulla carta è solo una pacifica mattinata in cui trasformare un'aula capiente in un bar, in realtà diventa la gestione di un bando di gara multilivello, dove il posizionamento di una teglia di brioche senza glutine richiede la stessa precisione diplomatica di un trattato di pace internazionale. Eppure, la redenzione di questo delirio logistico sta proprio tra quei tavoli improvvisati. È in quel caos che l'isolamento crolla: la merenda smette di essere un dovere performativo e si mostra per quello che è: l'ultimo spazio rimasto per fare squadra, ridere di noi stessi e cambiare la scuola. Una brioche alla volta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- N — NOME -->
+<section class="voce" id="nome">
+  <div class="voce-lettera">N</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">12 / 21</span>
+      <h2 class="voce-titolo">Nome</h2>
+      <p class="voce-autrice">Sara Cappelletti</p>
+    </header>
+    <div class="voce-testo">
+      <p>Il <em>nome</em> è spesso il primo elemento con cui ci si introduce al mondo e a chi si incontra: segno tangibile delle nostre esistenze. È espressione delle nostre identità e ha finalità sociali: può segnare legami di appartenenza a famiglie, culture e comunità. Con il nostro nome, veniamo conosciuti e riconosciuti. Non a caso, il nome è considerato uno dei diritti fondamentali della persona.</p>
+      <p>L'atto di nominare dovrebbe essere sempre anche un modo per dire: "Ti vedo. Ti riconosco".</p>
+      <p>Chi porta nomi percepiti come insoliti dalla cultura dominante può vivere esperienze di indifferenza o privazione che possono assumere varie forme, ma passano spesso per lo snaturamento dei loro nomi, dall'italianizzazione, alla deformazione, fino all'evitamento.</p>
+      <p>Cosa può fare la scuola? Fare i conti con i propri limiti, pregiudizi ed errori; aprire bene le orecchie; e poi: nominare, nominare, nominare. I nomi dovrebbero essere pronunciati con attenzione e spesso, a partire dal momento dell'appello: all'apparenza, un mero strumento burocratico; in realtà le sue implicazioni possono rivelarsi molto potenti.</p>
+      <p>È anche nel dire e ridire i nomi ad alta voce che si costruisce e si rinforza la relazione educativa e si riconosce la persona nella sua esistenza, nella sua identità, nel primo dei suoi diritti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- O — OBBLIGO -->
+<section class="voce" id="obbligo">
+  <div class="voce-lettera">O</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">13 / 21</span>
+      <h2 class="voce-titolo">Obbligo</h2>
+      <p class="voce-autrice">Lorenza Alessandri</p>
+    </header>
+    <div class="voce-testo">
+      <p>C'è un pezzo di scuola che è difficile da raccontare, ed è il pezzo di scuola che quasi nessuno di noi ama raccontare; il pezzo di scuola in cui io, l'insegnante, obbligo gli studenti a fare qualcosa che non hanno voglia di fare.</p>
+      <p>Che sia stare fermi nei banchi, aspettare l'intervallo per rispondere a un messaggio, studiare un argomento che considerano poco interessante, inutile, difficile: c'è, nella scuola, sempre una certa distanza tra ciò che si vorrebbe fare e ciò che si deve fare.</p>
+      <p>Possiamo cercare — dobbiamo cercare, secondo me — di rendere quell'obbligo il più piacevole possibile, ma esattamente come andare a scuola fino a 16 anni non è una scelta ma qualcosa di previsto dalla legge, così le attività in aula sono decise da un simbolico alto, e sono svolte da un simbolico basso: ministero, istituto, docente, studenti. C'è sempre una gerarchia da rispettare.</p>
+      <p>Nelle aule, per fortuna, quella gerarchia è basata su una visione: bambini e ragazzi sono il futuro, ma quel futuro non lo vedono; gli adulti, con il loro passato sulle spalle, hanno il privilegio della lungimiranza, e quella lungimiranza, quella capacità di dire "questo ti servirà", è ciò su cui si dovrebbe fondare l'obbligo, non su un generico "si deve fare così."</p>
+      <p>Questo è necessario perché nessun adolescente riesce nemmeno a immaginarlo, il futuro, tutto preso dal presente urgente che è la sua vita. E nessun adolescente riesce a immaginare che il futuro si costruisce anche nelle lunghe e noiose ore di scuola della mattina in cui sembra che niente sia interessante, ma in cui vengono seminate idee, abitudini, dialoghi che contribuiscono a formare la persona che si diventerà domani.</p>
+      <p>La formula magica — se ne esiste una — è creare un rapporto di fiducia in classe, per cui le scelte che sono fatte dall'insegnante vengono condivise con ragazze e ragazzi, motivate, volendo anche messe in discussione, perché siano chiari i criteri di scelta, gli obiettivi, il percorso.</p>
+      <p>Ancora una volta, quindi, si dovrebbe lasciare uno spazio al dialogo, per trasformare l'obbligo in una necessità condivisa, qualcosa che abbia un significato per tutti e che porti tutti nel futuro delle nostre vite.</p>
+    </div>
+  </div>
+</section>
+
+<!-- P — PRECARIATO -->
+<section class="voce" id="precariato">
+  <div class="voce-lettera">P</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">14 / 21</span>
+      <h2 class="voce-titolo">Precariato</h2>
+      <p class="voce-autrice">Jessica Omizzolo</p>
+    </header>
+    <div class="voce-testo">
+      <p>"Devo aspettare l'assegnazione sede." "Non so se avrò la classe a settembre." "Ho fatto domanda, devo aspettare."</p>
+      <p>Leggo i documenti della scuola e trovo "garantire la continuità educativa e didattica" ogni dieci righe. Poi parlo con le insegnanti e quasi nessuna di loro sa dove sarà a settembre. "A giugno scade il contratto". Non sa se seguirà ancora la sua classe. Se avrà mai un contratto stabile. Se sarà ancora in questa o quella Regione.</p>
+      <p>Questo stato di incertezza permanente non solo non garantisce le condizioni minime di lavoro, che permetterebbero ai docenti di dedicarsi con serenità al prendersi cura dei ragazzi, e perché no delle famiglie, ma non garantisce nemmeno le condizioni minime esistenziali.</p>
+      <p>Chi ti dà un mutuo senza un contratto fisso? Dove abiterai a settembre? A quali condizioni?</p>
+      <p>Il precariato nei lavori di cura mina alle fondamenta i bisogni fondamentali: sicurezza Polivagale, diritto ad una casa e ad una rete sociale stabili.</p>
+      <p>L'incertezza mantiene il controllo sulle persone, le fa sentire dipendenti ed instabili. Dunque arrabbiate e frustrate. E la narrazione sul "fare l'insegnante è vocazione" non fa che aggiungere colpevolizzazione, narrazione falsa e manipolativa, su una situazione già di per sé paradossale.</p>
+      <p>Vogliamo davvero docenti che stanno così male, tra i banchi di scuola dei nostri figli?</p>
+      <p>Quando smetteremo di accusare il singolo facendogli ricadere il peso di una situazione strutturale che viene mantenuta stabilmente da anni dai governi?</p>
+      <p>Il senso della scuola non dovrebbe tenere conto che prendersi cura, come dice Mortari, è "partecipare al sacro dell'altro" e che per farlo bisogna poter stare bene.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Q — QUADRO SVEDESE -->
+<section class="voce" id="quadro-svedese">
+  <div class="voce-lettera">Q</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">15 / 21</span>
+      <h2 class="voce-titolo">Quadro svedese</h2>
+      <p class="voce-autrice">Elena Sandre</p>
+    </header>
+    <div class="voce-testo">
+      <p>La capacità di agganciarsi, di restare, di fermarsi e di continuare a salire, senza scendere. Almeno finché non è finita. Il quadro svedese è impossibile fintanto che non ci si prova. Fa paura per l'altezza, per quella sfida ad andare verso il cielo che affascina in maniera innaturale. Fa paura per il limitato appoggio dei piedi che, nell'immaginario dei tempi, sembrano aver bisogno di tanta terra per viaggiare sicuri e veloci.</p>
+      <p>Ma forse non è detto che sia sempre così. Il quadro svedese è trovare un appiglio, il proprio, nel momento in cui serve. È prendersi il proprio tempo, guardare gli amici con ammirazione mentre salgono in cima e sapere che si farà la propria strada e non quella degli altri.</p>
+    </div>
+  </div>
+</section>
+
+<!-- R — RABBIA -->
+<section class="voce" id="rabbia">
+  <div class="voce-lettera">R</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">16 / 21</span>
+      <h2 class="voce-titolo">Rabbia</h2>
+      <p class="voce-autrice">Sarah Testa</p>
+    </header>
+    <div class="voce-testo">
+      <p>La rabbia, come tutte le emozioni che proviamo, ha una funzione adattiva legata alla sopravvivenza e alla protezione dei propri confini personali. Viene chiamata metaforicamente "emozione copertina" perché copre (per l'appunto) un sentire più profondo che deve essere protetto (se interessati si veda D. Goleman, <em>Intelligenza emotiva. Che cos'è e perché può renderci felici</em>, R.C.S. Libri e Grandi Opere, Milano, 1996).</p>
+      <p>Non è un'emozione semplice da gestire, poiché se il suo volume si alza può spaventare molto sia chi la sta provando sia coloro che ne sono oggetto, rischiando di diventare una forza distruttiva più che propulsiva. Solitamente, proprio per queste ragioni, tendiamo a demonizzarla ma se seguissimo i principi dell'intelligenza emotiva impareremmo che la rabbia, così come tutte le altre emozioni, altro non è che una bussola per orientarci nel mondo fuori da noi e nel mondo dentro di noi. Ciò che invece va assolutamente condannato sono i gesti compiuti sotto il suo impulso che ledono i diritti personali ed altrui.</p>
+      <p>Per intenderci: da insegnante non devo condannarmi se provo rabbia nei confronti di un alunno che non studia! Anzi, se mi autorizzassi ad utilizzare questa emozione in modo assertivo potrei incitare il ragazzo ad impegnarsi e a fare meglio, potrei utilizzarla per approfondire la sua situazione e capire come mai è così allergico ai libri. Devo assolutamente condannarmi invece, se la rabbia sollecitata dal non sentirmi visto come insegnante, dal sentirmi inefficace, si trasforma in un'energia distruttiva che non vede l'ora di colpire quell'alunno, umiliandolo nella sua persona, magari con appellativi denigratori o con delle punizioni che altro non fanno che aggiungere cocci rotti ad un pavimento cosparso di vasi già rotti.</p>
+      <p>Pensando ai numerosi progetti che ho condotto nelle scuole in qualità di psicoterapeuta mi sento di affermare che gran parte della rabbia che ho intercettato, sia da parte degli alunni, che da parte dei loro genitori, ma anche dei loro insegnanti, aveva a che fare con l'emozione sottostante della frustrazione. Frustrazione del non riuscire, del non sentirsi capaci, del non sentirsi adatti, del non sentirsi ascoltati, del non sentirsi bravi, del non avere uno sguardo compassionevole e amorevole a cui appoggiarsi. Chissà che, prendendosi cura delle frustrazioni, si possa ridurre anche un po' di rabbia?</p>
+    </div>
+  </div>
+</section>
+
+<!-- S — SOLITUDINE -->
+<section class="voce" id="solitudine">
+  <div class="voce-lettera">S</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">17 / 21</span>
+      <h2 class="voce-titolo">Solitudine</h2>
+      <p class="voce-autrice">Lorenza Alessandri</p>
+    </header>
+    <div class="voce-testo">
+      <p>C'è un posto, nelle aule in mezzo agli adolescenti, ai banchi stretti uno all'altro, agli zaini che ingombrano il passaggio, che è estremamente solitario, anche quando l'aula è affollata: quello dietro la cattedra.</p>
+      <p>La cattedra è il luogo da cui si prendono le decisioni, e sono sempre decisioni solitarie: come valutare un compito, come progettare un'attività, come modificare quella stessa attività perché non sta andando bene come si sperava, come reagire di fronte a un momento di difficoltà di qualcuno, o come agire di fronte a un comportamento scorretto.</p>
+      <p>È meglio essere severi o comprensivi? Fare finta di non sentire una brutta frase sussurrata o occuparsi di quella frase? Fare la faccia cattiva o cercare la complicità delle studentesse e degli studenti?</p>
+      <p>Non c'è una regola, perché ogni giorno, ogni minuto di ogni ora le cose sono diverse, perché cambiano gli umori, le situazioni, le cose che accadono, e quindi si deve decidere e farlo in fretta. Ogni giorno, ogni minuto di ogni ora, se sei la persona a cui è stato assegnato il banco grande, come lo chiamo io, sei sola. E oltre che sola, sei la persona adulta.</p>
+      <p>A volte, soprattutto nelle giornate difficili, in cui le lezioni sembrano andare male, le ragazze e i ragazzi collaborano poco, in classe c'è una tensione che non si sa comprendere appieno, sarebbe bello avere lo sguardo complice di qualcuno che con un cenno ti rassicuri sul fatto che stai facendo almeno del tuo meglio, anche se magari quel giorno lì il tuo meglio non è un granché.</p>
+      <p>Ma di solito la persona che lancia quello sguardo incoraggiante, lo sguardo che dice non importa, vai bene così, l'importante è averci provato, be', quella persona lì sei tu.</p>
+      <p>Così che tu stia dietro la cattedra, che tu ci stia davanti, per tenerti la classe più vicina, che tu stia seduta in mezzo ai banchi, la solitudine di essere l'adulto nella stanza non puoi evitarla: è una solitudine che rimarca la gerarchia, è una solitudine che carica di responsabilità, è una solitudine che spesso è un peso.</p>
+      <p>Ma è anche sopportare quella solitudine che insegna ai più giovani che diventare adulti si può, e che poi, alla fine, non è male.</p>
+    </div>
+  </div>
+</section>
+
+<!-- T — TEMA -->
+<section class="voce" id="tema">
+  <div class="voce-lettera">T</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">18 / 21</span>
+      <h2 class="voce-titolo">Tema</h2>
+      <p class="voce-autrice">Chiara Sivieri</p>
+    </header>
+    <div class="voce-testo">
+      <p>Nel caso di parole come questa, il ricorso all'etimologia non è un vezzo nozionistico da diplomati al liceo classico, ma uno strumento prezioso. La parola <em>tema</em> deriva dal verbo greco <em>tithemi</em>: "porre, mettere, collocare". Il tema dunque è qualcosa che viene "posto" allo studente, perché lo affronti, lo sviluppi, lo approfondisca. Dietro questo strumento didattico c'è dunque un movimento unidirezionale che va dal docente al discente, da chi <em>sa</em> a chi deve dimostrare di <em>sapere</em> e <em>saper fare</em>, da chi <em>eroga</em> conoscenza a chi la deve assorbire, da chi possiede il Santo Graal della scienza a chi lo deve ancora faticosamente ricercare.</p>
+      <p>Ma cosa accadrebbe se ogni tanto (ogni tanto dico, non sempre!) provassimo a ribaltare i piani? Se noi docenti provassimo a lasciarci "porre temi" dai nostri studenti, se li lasciassimo davvero liberi di mettere in crisi noi, le nostre certezze, la fiducia nelle nostre conoscenze?</p>
+      <p>Se ci liberassimo della presunzione di essere noi i soli depositari del sapere che vale la pena di essere conosciuto e ci abbandonassimo al pensiero, certo molto destabilizzante, che i nostri studenti conoscono cose che noi neppure immaginiamo e possono <em>addirittura</em> insegnarcele? Cosa accadrebbe se noi insegnanti ci mettessimo davvero in discussione, se invece di lamentarci di ciò che i nostri ragazzi non apprendono cominciassimo a dare spazio al "vero" tema, che è quello dell'idea di scuola che vogliamo avere?</p>
+      <p>Forse, all'inizio, avremmo le vertigini. Ma dopo, penso, sarebbe bellissimo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- U — ULTIMO BANCO -->
+<section class="voce" id="ultimo-banco">
+  <div class="voce-lettera">U</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">19 / 21</span>
+      <h2 class="voce-titolo">Ultimo banco</h2>
+      <p class="voce-autrice">Chiara Sivieri</p>
+    </header>
+    <div class="voce-testo">
+      <p>Penso che una delle sfide più difficili del lavoro di insegnante sia doversi confrontare con la noia. È una noia che si annida in giornate molto simili tra loro, che iniziano alle 8 e finiscono alle 14, con unità orarie della stessa durata, con una ritualità che somiglia molto alla monotonia: campanella, appello, seconda ora, intervallo, cambio d'ora e così via.</p>
+      <p>È una lotta, certi giorni, combattere la noia che rende opachi gli sguardi dei ragazzi e quelli di noi insegnanti, che fa l'aria della classe un po' stantia, soprattutto quando fuori il cielo è grigio e l'aria è fredda e anche il giardino sul quale affacciano le finestre della classe sembra troppo lontano per essere raggiunto.</p>
+      <p>È in quel momento, quando la noia sembra sul punto di avere la meglio, che l'ultima fila, l'ultimo banco, fanno paura, rivelandosi il termometro della nostra abilità di tenere viva l'attenzione degli studenti: se qualcosa comincia ad agitarsi, se vediamo qualcuno armeggiare con oggetti o peggio ancora device, se sentiamo voci confuse o peggio ancora risatine, allora comprendiamo quanto le nostre armi, in questa battaglia contro il tedio, siano spuntate.</p>
+      <p>Quando mi capita, ho capito che devo fare una cosa: alzarmi, o spostarmi dalla posizione in cui sono, e mettere la mia sedia in fondo alla classe, e lavorare da quella posizione. E da lì, capisco: in verità, l'ultimo banco è la cattedra.</p>
+    </div>
+  </div>
+</section>
+
+<!-- V — VOCAZIONE -->
+<section class="voce" id="vocazione">
+  <div class="voce-lettera">V</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">20 / 21</span>
+      <h2 class="voce-titolo">Vocazione</h2>
+      <p class="voce-autrice">Jessica Omizzolo</p>
+    </header>
+    <div class="voce-testo">
+      <p>Quando ai colloqui di selezione chiedo "Perché hai scelto questo lavoro?", spesso la risposta è: mi piacciono i bambini. Come se la professione dipendesse dalla chiamata d'amore. La parola vocazione è il crocevia in cui tutto si complica.</p>
+      <p>Una parola scivolosa. Appartiene al lessico religioso, alla rinuncia come prova di autenticità. Nel lavoro educativo questa struttura è ancora attiva. Dire "è una vocazione" significa, implicitamente: si fa per qualcosa che va oltre il compenso, oltre i diritti. E chi è chiamato non può fermarsi davanti alle difficoltà senza tradire la propria chiamata. È una trappola semantica che serve — spesso inconsapevolmente, talvolta no — a giustificare la mancanza di riconoscimento e i sistemi tritacarne: troppe ore, poco compenso, troppa precarietà.</p>
+      <p>L'amore non basta.</p>
+      <p>Questo lavoro richiede conoscenza dello sviluppo, competenza osservativa, capacità di progettazione, auto-osservazione, aggiornamento continuo. Nessuna di queste competenze si impara amando i bambini. C'è poi un rischio più sottile: se lavoro per il piacere che me ne viene, rischio di lavorare per me, non per loro. Di cercare le esperienze che mi riempiono, di attivare legami dipendenti invece di favorire autonomie ("i miei bambini"), di prendermela se qualcuno mi segnala un inciampo. Se lavoro per amore e santità, non sento il bisogno di studiare, riflettere, aggiornarmi.</p>
+      <p>La professionalità è ciò che permette di lavorare bene anche con il bambino che di pancia non ci verrebbe spontaneo avvicinare, con la famiglia difficile, con il collega con cui non c'è intesa. L'amore non è universalmente distribuibile. La professionalità sì.</p>
+      <p>Smettere di parlare di vocazione non è togliere la meraviglia all'educazione. È smetterla di usare la meraviglia come sostituto della politica.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Z — ZERO -->
+<section class="voce" id="zero">
+  <div class="voce-lettera">Z</div>
+  <div class="voce-content">
+    <header class="voce-header">
+      <span class="voce-numero">21 / 21</span>
+      <h2 class="voce-titolo">Zero</h2>
+      <p class="voce-autrice">Simona Butò</p>
+    </header>
+    <div class="voce-testo">
+      <p>Mamma, facciamo che io sono…</p>
+      <p>Ma io, chi sono?<br>Che cosa sono?<br>Quanto sono?</p>
+      <p>Abbiamo numeri che accertano se una casa può essere abitata oppure no, numeri che tengono legata una sfera di marmo bluastro alla sua stella, numeri che permettono ad una nuvola di elettricità e magnetismo di non disfarsi nel nulla… Abbiamo numeri per tutto e per ogni cosa.</p>
+      <p>Ma non c'è nulla che possa essere associato a me.</p>
+      <p>Sono un punto, senza dimensione.<br>Sono uno zero.</p>
+      <p>Un punto che oscilla tra l'essere nulla, per sé e per gli altri, e la certezza di poter diventare qualsiasi cosa.</p>
+      <p>Sono un punto perso nell'infinità dei piani che si possono immaginare.<br>Sono un numero tra zero e infinito.</p>
+      <p>Che cosa sono, dunque?</p>
+      <p>Perché… non so dove né come, ma io sono.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-mark">OraBuca</div>
+  <p>Una newsletter su psicologia contemporanea, vita digitale, cultura e tutto quello che ci capita intorno mentre fingiamo di avere tutto sotto controllo.</p>
+  <p><a href="https://orabuca.substack.com" target="_blank" rel="noopener">orabuca.substack.com</a></p>
+  <div class="footer-credit">Alfabeto emotivo della scuola italiana — 2026</div>
+</footer>
+
+<script>
+  // Evidenzia la lettera attiva durante lo scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
