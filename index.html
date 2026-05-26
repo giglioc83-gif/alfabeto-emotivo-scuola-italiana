@@ -390,13 +390,47 @@
     border-bottom: none;
   }
 
+  .bio-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
   .bio-nome {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 500;
     font-size: 22px;
     color: var(--ink);
-    margin-bottom: 12px;
     letter-spacing: -0.01em;
+  }
+
+  .bio-top {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .bio-top:hover {
+    color: var(--paper);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .bio-top::before {
+    content: '↑';
+    margin-right: 4px;
   }
 
   .bio-testo {
@@ -519,6 +553,8 @@
 </head>
 <body>
 
+<a id="top"></a>
+
 <!-- Navigazione -->
 <nav class="nav" id="nav">
   <a href="#aiuto">A</a>
@@ -595,9 +631,9 @@
     <div class="voce-testo">
       <p>Il termine <em>aiuto</em> si collega immediatamente nella mia mente al termine "ascolto". È solo grazie ad un ascolto attivo, alla possibilità di mettermi nei panni dell'altro con empatia, che la mia mente può pianificare un intervento di aiuto. Se io posso osservare l'Altro nella condizione in cui si trova, percepirne il vissuto emotivo (senza per questo farmi travolgere da esso), allora potrò anche tentare di fare un passo concreto verso l'Altro, con un gesto, una parola, o banalmente con un partecipato silenzio che possa essere di supporto e fare sentire il mio interlocutore meno solo nella sua condizione.</p>
       <p>Come scrivo nel testo <em>Cosa porto nel cerchio. Teoria e pratica dell'intelligenza emotiva in classe</em> "l'ascolto presuppone interazione tra due persone, che consente di mettere l'Altro nelle condizioni di dire la propria Verità. Essa può essere spiacevole, dolorosa e non può non sollecitare nell'ascoltatore emozioni, talvolta anche molto perturbanti e spinose". Si può dire che l'ascolto sia la <em>conditio sine qua non</em> per sviluppare una dimensione di aiuto. Penso sia doveroso sottolineare come la dimensione dell'ascolto e quindi, a seguire, quella dell'aiuto, sia trasversale a tutte le categorie in cui possiamo suddividere la popolazione. Serve ascolto attivo e quindi aiuto al bambino, all'adolescente e all'adulto; così come serve al giardiniere, al cuoco, al giudice o all'agente di polizia.</p>
-      <p>Solitamente tendiamo a commettere un grave errore e a pensare che i professionisti a servizio della Comunità non necessitino di aiuto, poiché dell'aiuto hanno fatto, per l'appunto, il loro mandato lavorativo. Niente, a mio avviso, di più sciocco da credere! L'ascolto di se stessi, delle emozioni sovente travolgenti a cui l'attività professionale espone e dunque la capacità di chiedere aiuto ai colleghi, ai superiori, agli amici, ai propri familiari o, se serve, ad altri professionisti della cura, è una condizione imprescindibile per offrire un lavoro di qualità, oltre che per essere cittadini sereni e soddisfatti.</p>
+      <p>Solitamente tendiamo a commettere un grave errore e a pensare che i professionisti a servizio della Comunità non necessitino di aiuto, poiché dell'aiuto ne hanno fatto per l'appunto, il loro mandato lavorativo. Niente, a mio avviso, di più sciocco da credere! L'ascolto di se stessi, delle emozioni sovente travolgenti a cui l'attività professionale espone e dunque la capacità di chiedere aiuto ai colleghi, ai superiori, agli amici, ai propri familiari o, se serve, ad altri professionisti della cura, è una condizione imprescindibile per offrire un lavoro di qualità, oltre che per essere cittadini sereni e soddisfatti.</p>
       <p>Il 18 maggio 2026, in un noto complesso scolastico torinese, durante le ore di servizio, si è tolto la vita, gettandosi volontariamente dal secondo piano dell'edificio, un insegnante trentacinquenne (fonte <em>Corriere della Sera</em>). Poco sappiamo circa le motivazioni del suo gesto, né tanto meno mi arrogo il miope diritto di farne una questione etica e morale. Prendo però a prestito questo increscioso e disperato fatto di cronaca per riflettere circa il tema in questione. Pensando alle istituzioni scolastiche siamo immediatamente portati a pensare che l'aiuto, l'ascolto, la cura e l'attenzione debbano essere erogati nei confronti degli alunni, fruitori diretti del servizio e, al più, nei confronti dei nuclei familiari da cui i suddetti provengono.</p>
-      <p>Ciò che invece sovente viene dimenticato è che i primi a necessitare di un ascolto attivo sono proprio i docenti, gli educatori e tutte quelle figure adulte (non meno importanti) che contribuiscono con il loro lavoro a tenere in moto la macchina scolastica (personale ATA, personale di segreteria, addetti di laboratorio, addetti mensa, ecc). Non possono esistere minori consapevoli senza degli adulti consapevoli. Non possono esistere minori empatici senza degli adulti empatici. Non possono esistere minori capaci di chiedere aiuto, senza adulti capaci di fare altrettanto.</p>
+      <p>Ciò che invece sovente viene dimenticato è che i primi a necessitare di un ascolto attivo sono proprio i docenti, gli educatori e tutte quelle figure adulte (non meno importanti) che contribuiscono con il loro lavoro a tenere in moto la macchina scolastica (personale ata, personale di segreteria, addetti di laboratorio, addetti mensa, ecc). Non possono esistere minori consapevoli senza degli adulti consapevoli. Non possono esistere minori empatici senza degli adulti empatici. Non possono esistere minori capaci di chiedere aiuto, senza adulti capaci di fare altrettanto.</p>
     </div>
   </div>
 </section>
@@ -631,9 +667,9 @@
     </header>
     <div class="voce-testo">
       <p>L'espressione <em>chat di classe</em> evoca l'apocalisse della genitorialità moderna.</p>
-      <p>Parlarne male, però, è come sparare sulla Croce Rossa. Perché la chat di classe è la comfort zone che serve ai genitori "apprensivi" per pianificare la vita della prole ed evitarle traumi e fatica (povera stella). Serve ai genitori "distratti" per avere un promemoria di quelle attività che altrimenti ignorerebbero. Serve ai genitori "impegnati" per avere degli assistenti per le attività extra scolastiche dei figli a costo zero.</p>
+      <p>Parlarne male, però, è come sparare sulla Croce Rossa. Perché la chat di classe è la comfort zone che serve ai genitori "apprensivi" per pianificare la vita della prole ed evitargli traumi e fatica (povera stella). Serve ai genitori "distratti" per avere un promemoria di quelle attività che altrimenti ignorerebbero. Serve ai genitori "impegnati" per avere degli assistenti per le attività extra scolastiche dei figli a costo zero.</p>
       <p>Sotto questa finta utilità si nasconde il vero capolavoro del nostro tempo sghembo: la totale deresponsabilizzazione dei ragazzi. Abbiamo sottratto loro ogni minima forma di autonomia. Un tempo, se non capivi una consegna, dovevi farti coraggio e chiamare un compagno. O prenderti la responsabilità di presentarti in classe senza compiti svolti. Oggi ci pensiamo noi: milizie di genitori pronti a rintracciare la pagina di geografia mancante. E la mia domanda è una: perché?</p>
-      <p>Il cortocircuito è epico: facciamo prediche sulla loro schermo-dipendenza, mentre passiamo i pomeriggi chini sullo smartphone a gestire la loro vita, oltre alla nostra. Ci lamentiamo che non socializzano e intanto depotenziamo l'unico vero spazio di alleanza: la classe. Perché è tra un compito non capito e una richiesta d'aiuto al compagno di classe che nasce la complicità e si impara a fare squadra. Rubando ai ragazzi queste piccole fatiche in nome di non so esattamente quale ideale, non li stiamo aiutando né proteggendo. Li stiamo solo privando del diritto di crescere.</p>
+      <p>Il cortocircuito è epico: facciamo prediche sulla loro schermo-dipendenza, mentre passiamo i pomeriggi chini sullo smartphone a gestire la loro vita, oltre alla nostra. Ci lamentiamo che non socializzano e intanto depotenziamo l'unico vero spazio di alleanza: la classe. Perché è tra un compito non capito e una richiesta d'aiuto al compagno di classe che nasce la complicità e si impara a fare squadra. Rubandogli queste piccole fatiche in nome di non so esattamente quale ideale, non li stiamo aiutando né proteggendo. Li stiamo solo privando del diritto di crescere.</p>
     </div>
   </div>
 </section>
@@ -704,7 +740,7 @@
     <div class="voce-testo">
       <p>"Genitori si diventa" cita il nome di una nota associazione torinese che si occupa di supportare psicologicamente quelle coppie che si stanno avvicinando al mondo dell'adozione. Per quanto essa riguardi solo uno degli ormai svariati modi attraverso cui una persona possa diventare un genitore oggigiorno, penso che questo titolo sia quanto mai calzante ed evocativo e possa abbracciare figurativamente tutte le possibili esperienze di genitorialità.</p>
       <p>Avere la tutela legale di un minore, infatti, non fa necessariamente dell'adulto un genitore, ma fa del minore un figlio. Non è detto pertanto che quando nasce un bambino nascano all'istante anche delle figure genitoriali. Penso, al contrario, che per questa parte dell'equazione serva del tempo. È la costruzione del legame affettivo che si crea di giorno in giorno con quel piccolino, la sintonizzazione sui suoi bisogni, l'arte del riconoscersi vicendevolmente nei propri stati emotivi che trasformano una donna nella "mia mamma" e un uomo nel "mio papà". In questo enorme lavoro di scambio relazionale, il genitore è tenuto ad interfacciarsi non solo con il proprio cucciolo, ma anche con tutto l'ambiente che egli porta con sé. (Si veda se interessati la teoria dei Sistemi Ecologici di U. Brofenbrenner, 1979 — <em>The ecology of human development: experiments by nature and design</em>. Testo tradotto in italiano <em>Ecologia dello sviluppo umano</em>, il Mulino, 1986).</p>
-      <p>Ed è proprio in questo scambio relazionale che l'adulto incontra il complesso, quanto farraginoso mondo della scuola. Egli non incontra (ahilui) solo la scuola che frequenta il figlio, ma anche l'esperienza che lui stesso, in qualità di figlio, ha attraversato nel corso della propria infanzia e adolescenza, il che, come si può facilmente immaginare, complica assai la faccenda. Sarebbe utile che il genitore avesse elaborato le proprie esperienze scolastiche, buone o cattive che siano state, per arrivare il più possibile sgombro nell'accompagnare il figlio in questo viaggio. Non è raro sentire: "È secchione proprio come me", oppure "Non studia nulla, proprio come me". È con questo bagaglio interno che madri e padri di tutto il mondo devono accompagnare i propri pargoletti a scuola, o recarsi ai colloqui con gli insegnanti.</p>
+      <p>Ed è proprio in questo scambio relazionale che l'adulto incontra il complesso, quanto farraginoso mondo della scuola. Egli non incontra (ahilui) solo la scuola che frequenta il figlio, ma anche l'esperienza che lui stesso, in qualità di figlio, ha attraversato nel corso della propria infanzia e adolescenza, il che, come si può facilmente immaginare, complica assai la faccenda. Sarebbe utile che il genitore possa aver elaborato le proprie esperienze scolastiche, buone o cattive che siano state, per arrivare il più possibile sgombro nell'accompagnare il figlio in questo viaggio. Non è raro sentire: "È secchione proprio come me", oppure "Non studia nulla, proprio come me". È con questo bagaglio interno che madri e padri di tutto il mondo devono accompagnare i propri pargoletti a scuola, o recarsi ai colloqui con gli insegnanti.</p>
       <p>Se è vero che ognuno deve fare i conti con l'alunno che è stato, un consiglio può in qualche modo alleggerire il fardello: cari genitori, alle riunioni di classe, ai colloqui individuali, alle assemblee di istituto andateci pensando che quegli insegnanti non sono nemici da combattere, non sono i vostri tremendi professori di latino che vi facevano saltare la ricreazione per tradurre Catullo ma persone con delle emozioni, esattamente come le vostre, con cui potete fare squadra, perché, seppur al di là della barricata il primo interesse di tutti è e deve rimanere solo uno: contribuire positivamente alla crescita dei vostri fanciulli.</p>
     </div>
   </div>
@@ -766,7 +802,7 @@
       <p>Nella mia dimensione privata, il libro è un rifugio silenzioso. Il verbo associato dominante è <em>leggere</em>, vissuto come una vera e propria terapia dell'anima, uno spazio di cura e introspezione.</p>
       <p>Ma quando ogni giorno entro in Appears, la prospettiva si ribalta e il libro diventa un oggetto dinamico, un progetto vivo: il verbo dominante diventa fare.</p>
       <p>Fare un libro, specialmente se destinato alla scuola, significa entrare in un universo complesso che va ben oltre la pagina stampata. È un processo fatto di flussi, tecnicismi rigorosi e scelte metodologiche precise, ma anche di tanta creatività. Dietro ogni pagina si muove una costellazione di persone: redattori, grafici, esperti di didattica, autori e consulenti, motion designer e redattori digitali, persino attori, che intrecciano le proprie peculiarità, caratteri e anche emozioni per un obiettivo comune, quello di creare un formidabile strumento metodologico che affianchi chi insegna e chi studia.</p>
-      <p>In questo senso, il libro di testo diventa il punto di arrivo di un'opera corale, in cui le esigenze del contenuto devono tenere conto, sempre di più in un mondo che cambia, di Indicazioni ministeriali in rincorsa, di framework europei, di logiche commerciali (perché sempre di lavoro e di mercato stiamo parlando, anche se sarebbe romantico far finta che non sia così), di esigenze di studenti e studentesse con livelli di attenzione sempre, ahimè, più bassi.</p>
+      <p>In questo senso, il libro di testo diventa il punto di arrivo di un'opera corale, dove le esigenze del contenuto devono tenere conto, sempre di più in un mondo che cambia, di Indicazioni ministeriali in rincorsa, di framework europei, di logiche commerciali (perché sempre di lavoro e di mercato stiamo parlando, anche se sarebbe romantico far finta non sia così), di esigenze di studenti e studentesse con livelli di attenzione sempre, ahimè, più bassi.</p>
       <p>Fare un libro è, in ultima analisi, collaborare per costruire un mattoncino della scuola che cambia.</p>
     </div>
   </div>
@@ -847,7 +883,7 @@
       <p>L'incertezza mantiene il controllo sulle persone, le fa sentire dipendenti ed instabili. Dunque arrabbiate e frustrate. E la narrazione sul "fare l'insegnante è vocazione" non fa che aggiungere colpevolizzazione, narrazione falsa e manipolativa, su una situazione già di per sé paradossale.</p>
       <p>Vogliamo davvero docenti che stanno così male, tra i banchi di scuola dei nostri figli?</p>
       <p>Quando smetteremo di accusare il singolo facendogli ricadere il peso di una situazione strutturale che viene mantenuta stabilmente da anni dai governi?</p>
-      <p>Il senso della scuola non dovrebbe tenere conto del fatto che prendersi cura, come dice Mortari, è "partecipare al sacro dell'altro" e che per farlo bisogna star bene?</p>
+      <p>Il senso della scuola non dovrebbe tenere conto che prendersi cura, come dice Mortari, è "partecipare al sacro dell'altro" e che per farlo bisogna poter stare bene.</p>
     </div>
   </div>
 </section>
@@ -996,47 +1032,74 @@
 
   <div class="bio-list">
     <article class="bio" id="bio-sarah-testa">
-      <h3 class="bio-nome">Sarah Testa</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Sarah Testa</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Psicologa e psicoterapeuta, bresciana di origine ma ormai adottata dalla città di Torino da più di vent'anni. Lavora aiutando adulti e minori presso lo studio <a href="https://parma71studiopsicoterapia.it/" target="_blank" rel="noopener">Parma71</a>, svolgendo psicoterapie individuali e di gruppo. Conduce progetti di intervento nel mondo della scuola ed eroga formazioni per insegnanti, educatori e genitori. È coautrice di <em>Cosa porto nel cerchio. Teoria e pratica dell'intelligenza emotiva a scuola</em>, edito da Lattes Editori.</p>
     </article>
 
     <article class="bio" id="bio-simona-buto">
-      <h3 class="bio-nome">Simona Butò</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Simona Butò</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Ha insegnato per quasi trent'anni nella scuola secondaria e adesso si dedica ad accompagnare i docenti nei meandri del sistema-scuola. In particolare, con la sua attività di formazione li aiuta a pensarsi — e, di conseguenza, ad agire — come veri e propri ricercatori. Nel febbraio 2023 ha ideato il progetto editoriale <a href="https://simonab.substack.com/" target="_blank" rel="noopener"><em>Lettere ad un (giovane) docente</em></a>, nel quale ogni settimana propone spunti di approfondimento e risorse per le classi.</p>
     </article>
 
     <article class="bio" id="bio-marcella-acierno">
-      <h3 class="bio-nome">Marcella Acierno</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Marcella Acierno</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Scrittrice per vocazione, procrastinatrice per professione e dipendente pubblica per sopravvivenza. Autrice del romanzo <a href="https://www.amazon.it/Una-giornata-inaspettata-Marcella-Acierno/dp/B0BHLCJCXS/ref=tmm_pap_swatch_0" target="_blank" rel="noopener"><em>Una giornata inaspettata</em></a> e a pochi capitoli dalla fine del secondo, la sua newsletter <a href="https://lenotedimarcella.substack.com/" target="_blank" rel="noopener"><em>Le note di Marcella</em></a> è uno spazio in cui esplora la complessità delle storie (senza sconti o facili lieti fini) e la realtà del lavoro di chi scrive.</p>
     </article>
 
     <article class="bio" id="bio-sara-cappelletti">
-      <h3 class="bio-nome">Sara Cappelletti</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Sara Cappelletti</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Insegnante ed esperta di didattica dell'italiano L2, ha alle spalle una laurea in Orientalistica e un dottorato in Storia. Ha lavorato con persone di ogni età, dalle scuole al carcere, e cura le newsletter <a href="https://mattonelanewsletter.substack.com/" target="_blank" rel="noopener"><em>Mattone</em></a> e <a href="https://afilorefe.substack.com/" target="_blank" rel="noopener"><em>afilorefe</em></a>, convinta che l'insegnamento sia prima di tutto uno spazio di incontro e cura.</p>
     </article>
 
     <article class="bio" id="bio-alice-vedovati">
-      <h3 class="bio-nome">Alice Vedovati</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Alice Vedovati</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Direttrice generale di <a href="https://appears.pro/" target="_blank" rel="noopener">Appears</a>, studio editoriale specializzato in didattica, che pubblica il magazine <a href="https://www.direfareinsegnare.education/" target="_blank" rel="noopener"><em>Dire, fare, insegnare</em></a>. Di recente ha conseguito il Master in Instructional Design (Le Nuove Competenze Digitali: Open Education, Social e Mobile Learning dell'Università di Firenze). Mamma da circa 12 anni, vive e osserva il mondo della scuola da più punti di vista.</p>
     </article>
 
     <article class="bio" id="bio-chiara-sivieri">
-      <h3 class="bio-nome">Chiara Sivieri</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Chiara Sivieri</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Figlia di un medico e un'insegnante, forse per questo ha scelto di fare l'insegnante pensando alla scuola come luogo di cura. Lavora nelle scuole da 20 anni e ha scritto un'antologia per la secondaria di primo grado. Ha tre figlie, studentesse, che le ricordano quotidianamente cosa sia la scuola, dal loro punto di vista. La trovate anche su <a href="https://substack.com/@chiarasivieri/posts" target="_blank" rel="noopener">Substack</a>.</p>
     </article>
 
     <article class="bio" id="bio-elena-sandre">
-      <h3 class="bio-nome">Elena Sandre</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Elena Sandre</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Communication Manager, ex giornalista sportiva e autrice, insieme alla associazione Polisportiva Veranese, della newsletter <a href="https://elenasandrelosportsifa.substack.com/" target="_blank" rel="noopener"><em>Lo Sport si fa</em></a>, un contenitore dedicato agli aspetti emotivi, organizzativi, concreti dell'attività sportiva (no risultati, no gossip, tanto ragionamento).</p>
     </article>
 
     <article class="bio" id="bio-lorenza-alessandri">
-      <h3 class="bio-nome">Lorenza Alessandri</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Lorenza Alessandri</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Filosofa di formazione, insegna da 25 anni Lingua e letteratura italiana e Storia alla scuola secondaria di secondo grado. È giudice nazionale per la Società Nazionale Debate Italia, e sul Debate ha scritto <em>Il Debate e la didattica. Un laboratorio di democrazia</em> (Blonk, 2021). Coautrice di <em>La grammatica che serve</em> (Feltrinelli scuola, 2025), nell'ultimo anno cura la newsletter <a href="https://comeandataascuolaoggi.substack.com/" target="_blank" rel="noopener"><em>Come è andata a scuola oggi?</em></a> su Substack, dove scrive di scuola pubblica, linguaggio e adolescenza.</p>
     </article>
 
     <article class="bio" id="bio-jessica-omizzolo">
-      <h3 class="bio-nome">Jessica Omizzolo</h3>
+      <div class="bio-head">
+        <h3 class="bio-nome">Jessica Omizzolo</h3>
+        <a class="bio-top" href="#top">Torna su</a>
+      </div>
       <p class="bio-testo">Coordinatrice pedagogica, formatrice e docente. Si occupa in particolare di educazione 0-6. Potete trovarla su <a href="https://jessicaomizzolo.substack.com/" target="_blank" rel="noopener"><em>Innovazione Educativa</em></a>.</p>
     </article>
   </div>
